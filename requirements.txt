@@ -1,0 +1,11 @@
+mujoco
+numpy
+scipy
+glfw
+imageio
+imageio[ffmpeg]
+matplotlib
+opencv-python
+tqdm
+transform3d
+pyqt5 # display matplotlib graphs

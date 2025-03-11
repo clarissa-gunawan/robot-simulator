@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  mujoco:
+    build: .
+    container_name: robot-simulator-mujoco
+    environment: 
+      - DISPLAY=${DISPLAY}
+      # - MUJOCO_GL=osmesa
+      # - NVIDIA_VISIBLE_DEVICES=all
+      # - NVIDIA_DRIVER_CAPABILITIES=all
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+      - XAUTHORITY=/root/.Xauthority
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${XAUTHORITY}:/root/.Xauthority
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./simulator:/app/simulator
+      # - ./entrypoint.sh:/app/entrypoint.sh
+    network_mode: host
+    stdin_open: true
+    tty: true
+    ipc: host
+    entrypoint: ["/bin/bash", "-c", "./entrypoint.sh"]
