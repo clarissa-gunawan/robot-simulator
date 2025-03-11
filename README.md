@@ -9,3 +9,9 @@ ERROR: could not initialize GLFW
 ```
 xhost +local:root
 ```
+
+# Run Simulation
+
+```
+docker compose up
+```
